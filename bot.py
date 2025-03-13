@@ -11,7 +11,7 @@ def generate_ai_response(user_input):
         response = requests.post(
             url="https://openrouter.ai/api/v1/chat/completions",
             headers={
-                "Authorization": "Bearer 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",
+                "Authorization": "API-KEY",
                 "Content-Type": "application/json"
             },
             data=json.dumps({
@@ -46,7 +46,7 @@ def generate_code(update: Update, context: CallbackContext) -> None:
     update.message.reply_text(f"```\n{safe_code_output}\n```", parse_mode="MarkdownV2")
 
 def main():
-    updater = Updater("7530701338:AAHHmD9C4fWMWBeKuh0Du8D6NjK_hd8Saso", use_context=True)
+    updater = Updater("TELEGRAM_BOT_API", use_context=True)
     dp = updater.dispatcher
     
     dp.add_handler(CommandHandler("start", start))
